@@ -1,0 +1,8 @@
+You entered 'drugbank' database and 'xml' format.
+You entered the following file to parse: /home/nuria/workspace/repurposing-hetio/rephetio-dhimmelstein/Characterization-Disease-Drug-Scope-of-hetio/in/drugbank-full-database.xml.
+The parser is starting...
+The output files will be at: /home/nuria/workspace/repurposing-hetio/rephetio-dhimmelstein/Characterization-Disease-Drug-Scope-of-hetio/out/
+Number of fragments: 8221
+Parsing finished. See you next time!
+chebi input:  1552, mapped in the dictionary: 1071
+atc input:  1552, mapped in the dictionary: 1361
