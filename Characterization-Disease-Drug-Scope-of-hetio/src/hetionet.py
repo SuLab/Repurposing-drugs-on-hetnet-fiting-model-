@@ -312,7 +312,7 @@ def get_chebi_ontologyOBOBranch(in_path,out_path,in_file):
     # RE PATTERNS
     id_pattern = re.compile(r'id: (CHEBI:\d+)\n')
     name_pattern = re.compile(r'name: (.+)\n')
-    is_a_pattern = re.compile(r'is_a: CHEBI:24431 ! (.+)\n')
+    is_a_pattern = re.compile(r'is_a: CHEBI:36342 ! (.+)\n')
     
     # ALGORITHM
     term_list = obo_data.strip('\n').split('ontology: chebi')[1].split('[Typedef]')[0].split('[Term]')[1:] # [0] is a \n line
@@ -332,7 +332,7 @@ def get_chebi_ontologyOBOBranch(in_path,out_path,in_file):
                 # Write ontology is-a relations
                 out_file.write("{}\t{}\n".format(child_id,child_name))                
                 branch2name_dict[child_id] = child_name
-    rel_dict['CHEBI:24431'] = parent_name                            
+    rel_dict['CHEBI:36342'] = parent_name                            
             
     # CLOSE   
     out_file.close()
@@ -618,7 +618,7 @@ if __name__ == '__main__':
         
         # ChEBI parsing
         #get_chebi_ontologyOBOChildParent(in_path,out_path,chebi_file) 
-        get_chebi_ontologyOBOBranch(in_path,out_path,chebi_file)
+        #get_chebi_ontologyOBOBranch(in_path,out_path,chebi_file)
         #get_activeChEBI(in_path,out_path,chebi_file, obsolete_continue = True)
         
         # Drugbank parsing mappings from the database xml downloaded file: drugbank2chebi and drugbank2atc
@@ -626,13 +626,13 @@ if __name__ == '__main__':
         format = "xml"
         drugbank_file = "/home/nuria/workspace/repurposing-hetio/rephetio-dhimmelstein/Characterization-Disease-Drug-Scope-of-hetio/in/drugbank-full-database.xml"
         #db2chebi_dict = parser(drugbank_file, out_path, database, format)
-        #db2chebi_dict, db2atc_parents_dict = parser(drugbank_file, out_path, database, format)
+        db2chebi_dict, db2atc_parents_dict = parser(drugbank_file, out_path, database, format)
         # Mapping input to ChEBI
         in_file = out_path + 'hetionet-drugbankids-list.tab'
         out_file = out_path + 'hetionet-chebids-list.tab'
         #get_mapping_drugbank2chebi(in_file, out_file, db2chebi_dict)
         out_file = out_path + 'hetionet-atcids-list.tab'
-        #get_mapping_drugbank2atc(in_file, out_file, db2atc_parents_dict)
+        get_mapping_drugbank2atc(in_file, out_file, db2atc_parents_dict)
     
         
     except OSError:
