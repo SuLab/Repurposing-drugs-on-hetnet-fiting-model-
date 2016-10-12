@@ -1,0 +1,13 @@
+{
+  "compound_id": "DB01048",
+  "compound_name": "Abacavir",
+  "compound_percentile": 0.059701492537313425,
+  "disease_id": "DOID:10652",
+  "disease_name": "Alzheimer's disease",
+  "disease_percentile": 0.18292682926829268,
+  "metapath_contribution": {},
+  "n_trials": 0.0,
+  "prediction": 0.0011722575376773095,
+  "status": 0,
+  "training_prediction": 0.0012995312337936776
+}
